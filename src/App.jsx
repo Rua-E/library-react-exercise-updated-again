@@ -7,15 +7,43 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { books } from "./data";
 import BookInfo from "./pages/BookInfo.jsx";
 import Cart from "./pages/Cart.jsx";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 function App() {
-  const [cart, setcart] = useState([]);
+  const [cart, setCart] = useState([]);
 
   function addToCart(book) {
-    console.log('add to cart', book)
+    setCart([...cart, book])
   }
+  
+useEffect(() => {
+  console.log(cart)
+},[cart])
+
+    // const dupeItem = cart.find((item) => +item.id === +book.id);
+    // if (dupeItem) {
+    //   setCart(
+    //     cart.map((item) => {
+    //       if(item.id === dupeItem.id) {
+    //         return {
+    //           ...item,
+    //           quantity: item.quantity + 1,
+    //         };
+    //       }
+    //       else {
+    //         return item;
+    //       }
+    //    })
+    //  );
+    // }
+    // else {
+    //   setCart([...cart, {...book, quantity: 1}])
+    // }
+
+  // useEffect(() => {
+  //   console.log(cart);
+  // },[cart])
 
   return (
     <Router>
