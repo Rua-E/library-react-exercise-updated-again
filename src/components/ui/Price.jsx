@@ -3,7 +3,7 @@ import React from "react";
 const Price = ({ salePrice, originalPrice }) => {
   return (
     <div className="book__price">
-      {salePrice ? (
+      {/* {salePrice ? (
         <div>
           <span className="book__price--normal">
            ${originalPrice.toFixed(2)}
@@ -12,7 +12,7 @@ const Price = ({ salePrice, originalPrice }) => {
           </div>
       ) : (
         `$${originalPrice.toFixed(2)}`
-      )}
+      )} */}
     </div>
   );
 };
