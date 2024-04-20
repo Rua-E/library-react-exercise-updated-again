@@ -8,6 +8,7 @@ import { books } from "./data";
 import BookInfo from "./pages/BookInfo.jsx";
 import Cart from "./pages/Cart.jsx";
 import React, { useEffect, useState } from "react";
+import { counter } from "@fortawesome/fontawesome-svg-core";
 
 
 function App() {
@@ -33,6 +34,14 @@ function App() {
     setCart(cart.filter(book => book.id !== item.id))
   }
 
+  function numberOfItems() {
+    let counter = 0;
+    cart.forEach(item => {
+      counter += item.quantity 
+    })
+    return counter;
+  }
+
   useEffect(() => {
     console.log(cart)
   },[cart])
@@ -40,7 +49,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav></Nav>
+        <Nav numberOfItems={numberOfItems()} ></Nav>
         <Routes>
           <Route path="/" exact element={<Home></Home>} ></Route>
           <Route path="/books" exact element={ <Books books={books}></Books>} ></Route>
